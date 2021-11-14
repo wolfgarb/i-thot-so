@@ -13,7 +13,7 @@ Here is how the application appears and functions.
 
 <img src='assets\Note-Taker-demo.gif' />
 
-The full walk-through video can be found [here!]()
+The full walk-through video can be found [here!](https://youtu.be/rmhH6xyGSNg)
 
 ## Installation
 This application is available to use on Heroku! 
