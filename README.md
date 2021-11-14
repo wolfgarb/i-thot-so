@@ -64,8 +64,6 @@ npm start
 
 Open your browser to [``http://localhost:3005/``](http://localhost:3005/)
 
-<img src='' />
-
 ## Credits
 To create randomly generated ID's for notes in the database, I utilized
 [nano id](https://github.com/ai/nanoid). 
