@@ -25,10 +25,15 @@ app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/db/db.json'));
 });
 
-// get notes by ID from sidebar
+// wildcard route takes user back to root directory
+app.get('*', (req, res) => {
+    return res.sendFile(path.join(__dirname, 'public/index.html'));
+})
+
+// GET notes by ID from sidebar when clicked
 app.get('/api/notes/:id', (req, res) => {
-    let pickedNote = req.params.id;
-    let noteData = JSON.parse(fs.readFileSync('./db/db.json'));
+    const pickedNote = req.params.id;
+    const noteData = JSON.parse(fs.readFileSync('./db/db.json'));
     
     for (let i = 0; i < noteData.length; i++) {
         if (pickedNote === noteData[i].id) {
@@ -51,13 +56,20 @@ app.post('/api/notes', (req, res) => {
 });
 
 // DELETE notes
+app.delete('/api/notes/:id', (req, res) => {
+    const pickedNote = req.params.id;
+    const noteData = JSON.parse(fs.readFileSync('./db/db.json'));
 
-
-// wildcard route takes user back to root directory
-app.get('*', (req, res) => {
-    return res.sendFile(path.join(__dirname, 'public/index.html'));
+    for (let i = 0; i < noteData.length; i++) {
+        if (pickedNote === noteData[i].id) {
+            noteData.splice(i, 1);
+            i--;
+        }
+    }
+    fs.writeFileSync('./db/db.json', JSON.stringify(noteData));
+    res.json(noteData);
 })
 
 app.listen(PORT, () => {
     console.log(`Server now on port ${PORT}`);
-})
+});
