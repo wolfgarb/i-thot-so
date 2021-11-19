@@ -3,6 +3,7 @@
 ## Purpose
 
 A simple note taking app anyone can use. This application best highlights the use of Express.js
+
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 
 ## Table of Contents
